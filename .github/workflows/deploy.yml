@@ -27,11 +27,13 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
+      # Gradle ставит само действие GitHub (с повторами при сбоях сети),
+      # а не скрипт gradlew — на GitHub загрузка через gradlew обрывалась
       - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.10.2"
       - name: Сборка (Kotlin -> JavaScript)
-        run: |
-          chmod +x gradlew
-          ./gradlew jsBrowserDistribution --no-daemon
+        run: gradle jsBrowserDistribution --no-daemon
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
