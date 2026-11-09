@@ -17,3 +17,12 @@ kotlin {
         binaries.executable()
     }
 }
+
+// На GitHub (переменная CI) берём уже установленный там Yarn, а не скачиваем его:
+// загрузка с github.com/yarnpkg иногда обрывается с ошибкой 504.
+// На своём компьютере всё скачивается автоматически, как обычно.
+if (System.getenv("CI") != null) {
+    plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
+        the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().download = false
+    }
+}

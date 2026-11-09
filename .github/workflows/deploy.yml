@@ -33,7 +33,14 @@ jobs:
         with:
           gradle-version: "8.10.2"
       - name: Сборка (Kotlin -> JavaScript)
-        run: gradle jsBrowserDistribution --no-daemon
+        # при сбое сети пробуем ещё раз (до 3 попыток)
+        run: |
+          for i in 1 2 3; do
+            gradle jsBrowserDistribution --no-daemon && exit 0
+            echo "Попытка $i не удалась, повторяю через 20 секунд..."
+            sleep 20
+          done
+          exit 1
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
