@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Контакты — Луч</title>
+</head>
+<body>
+  <header id="header"></header>
+  <main>
+    <div class="container">
+      <div class="page-head">
+        <h1>Контакты</h1>
+        <p class="muted">Магазины, сервис и обратная связь.</p>
+      </div>
+
+      <h2>Фирменные магазины</h2>
+      <div class="shops">
+        <div class="shop"><h3>Минск, центр</h3><p class="muted">Адрес магазина</p><p>Пн–Сб 10:00–20:00</p></div>
+        <div class="shop"><h3>Минск, ТЦ</h3><p class="muted">Адрес магазина</p><p>Ежедневно 10:00–22:00</p></div>
+        <div class="shop"><h3>Сервисный центр</h3><p class="muted">Адрес сервиса</p><p>Пн–Пт 9:00–18:00</p></div>
+      </div>
+
+      <h2 class="section-title">Напишите нам</h2>
+      <form class="contact-form" id="contact-form">
+        <input name="name" placeholder="Ваше имя" required />
+        <input name="email" type="email" placeholder="Email" required />
+        <textarea name="message" rows="5" placeholder="Сообщение" required></textarea>
+        <button class="btn" type="submit">Отправить</button>
+        <p class="form-msg" id="form-msg"></p>
+      </form>
+    </div>
+  </main>
+  <footer id="footer"></footer>
+  <script type="module" src="/src/js/contacts.js"></script>
+</body>
+</html>

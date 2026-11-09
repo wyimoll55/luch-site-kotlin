@@ -1,0 +1,40 @@
+# Сборка сайта на Kotlin/JS и публикация на GitHub Pages после каждого git push
+name: Публикация сайта на Kotlin
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Сборка (Kotlin -> JavaScript)
+        run: |
+          chmod +x gradlew
+          ./gradlew jsBrowserDistribution --no-daemon
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build/dist/js/productionExecutable
+      - id: deployment
+        uses: actions/deploy-pages@v4

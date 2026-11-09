@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Луч — белорусские часы</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="home">
+  <header id="header"></header>
+  <main>
+    <section class="hero container">
+      <div class="hero-left">
+        <img src="images/hero-man.png" alt="Человек бежит с большими часами" class="hero-man" />
+      </div>
+      <div class="hero-right">
+        <h1 class="hero-title">Минский часовой завод</h1>
+
+        <div class="slider" id="slider">
+          <div class="slides" id="slides"></div>
+          <button class="slider-btn prev" aria-label="Назад">⟵</button>
+          <button class="slider-btn next" aria-label="Вперёд">⟶</button>
+          <div class="dots" id="dots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Коллекции: подчёркивания появляются при наведении курсора -->
+    <section class="collections">
+      <a class="collection-photo" href="catalog.html?collection=1801">
+        <img src="images/collection-1801.jpg" alt="Коллекция «1801»" />
+        <span class="hover-line" style="--x: 8.06%; --y: 47.9%; --w: 47.0%"></span>
+        <span class="hover-line second" style="--x: 36.04%; --y: 74.6%; --w: 19.03%"></span>
+      </a>
+
+      <div class="all-band">
+        <a href="collections.html" class="all-link">Все коллекции</a>
+      </div>
+
+      <a class="collection-photo" href="catalog.html?collection=formal-2-0">
+        <img src="images/collection-formal.jpg" alt="Коллекция Formal 2.0" />
+        <span class="formal-title">
+          <img src="images/formal-title.png" alt="" />
+          <span class="title-line"></span>
+        </span>
+      </a>
+    </section>
+
+  </main>
+  <footer id="footer"></footer>
+  <script src="luch.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Каталог — Луч</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="catalog">
+  <header id="header"></header>
+  <main>
+    <div class="container">
+      <h1 class="catalog-title">Каталог</h1>
+
+      <!-- Вкладки: какая выбрана — та серая, как в макете -->
+      <div class="catalog-tabs" id="tabs">
+        <button class="tab-btn" data-tab="wrist">Наручные часы</button>
+        <button class="tab-btn" data-tab="interior">Интерьерные часы</button>
+        <button class="tab-btn" data-tab="accessories">Аксессуары</button>
+      </div>
+
+      <div class="catalog-controls">
+        <div class="price-range">
+          <span>От</span>
+          <label class="price-input"><input type="number" id="price-from" min="0" step="10" /> <svg class="byn" viewBox="0 0 20 28" aria-label="руб."><path d="M17 3H6v22h5a6 6 0 0 0 0-12H6M1.5 19.5h9" fill="none" stroke="currentColor" stroke-width="2.6"/></svg></label>
+          <span>До</span>
+          <label class="price-input"><input type="number" id="price-to" min="0" step="10" /> <svg class="byn" viewBox="0 0 20 28" aria-label="руб."><path d="M17 3H6v22h5a6 6 0 0 0 0-12H6M1.5 19.5h9" fill="none" stroke="currentColor" stroke-width="2.6"/></svg></label>
+        </div>
+        <div class="sort-dropdown" id="sort-dropdown">
+          <button class="sort-select" id="sort-btn">Сортировать по <span class="sort-arrow">▾</span></button>
+          <ul class="sort-menu" id="sort-menu">
+            <li><button data-sort="">Популярности</button></li>
+            <li><button data-sort="new">Новинки</button></li>
+            <li><button data-sort="desc">Цена по убыванию</button></li>
+            <li><button data-sort="asc">Цена по возрастанию</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="catalog-layout">
+        <button class="filters-toggle" id="filters-toggle">Фильтры</button>
+
+        <aside class="filters-panel" id="filters">
+          <h3 class="filters-title">Фильтры</h3>
+          <div id="filter-groups"></div>
+          <button class="reset-btn" id="reset">Сбросить фильтры</button>
+        </aside>
+
+        <section class="catalog-main">
+          <div class="active-collection" id="active-collection"></div>
+          <p class="muted" id="count"></p>
+          <div class="pgrid" id="catalog-list"></div>
+          <div class="pager" id="pager">
+            <button class="pager-btn" id="prev" aria-label="Предыдущая страница">⟵</button>
+            <span class="pager-num" id="page-num">1</span>
+            <button class="pager-btn" id="next" aria-label="Следующая страница">⟶</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer id="footer"></footer>
+  <script src="luch.js"></script>
+</body>
+</html>
